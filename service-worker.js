@@ -1,5 +1,5 @@
 // Define the cache name and the files to cache
-const CACHE_NAME = "my-simple-pwa-cache-v4";
+const CACHE_NAME = "my-simple-pwa-cache-v5";
 const urlsToCache = [
   "/",
   "/index.html",
@@ -44,19 +44,19 @@ self.addEventListener("activate", (event) => {
 });
 
 // Handling backup sync
-self.addEventListener("sync", (event) => {
-  if (event.tag === "sync-updates") {
-    event.waitUntil(syncUpdates());
-  }
-});
+// self.addEventListener('sync', (event) => {
+//   if (event.tag === 'sync-updates') {
+//     event.waitUntil(syncUpdates());
+//   }
+// });
 
-async function syncUpdates() {
-  // Function to handle syncing data
-  try {
-    const response = await fetch("/api/sync-updates");
-    const data = await response.json();
-    console.log("Data synced:", data);
-  } catch (error) {
-    console.error("Sync failed:", error);
-  }
-}
+// async function syncUpdates() {
+//   // Function to handle syncing data
+//   try {
+//     const response = await fetch('/api/sync-updates');
+//     const data = await response.json();
+//     console.log('Data synced:', data);
+//   } catch (error) {
+//     console.error('Sync failed:', error);
+//   }
+// }
